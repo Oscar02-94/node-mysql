@@ -1,0 +1,36 @@
+{{!-- aqui van el contenido que se guado aqui lo mostramos en esta  lista con el each lo recorremos recorremo lod links --}}
+
+<div class="container p-4">
+    <div class="row">
+
+        {{#each links }}
+            {{!-- {{this}}- con esto mostramos todo lo que en la req pero solo mostraremos por medio de tarjetas el titulo  --}}
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <a href="{{url}}" target="blank">   {{!--  con target="blank" hacemos que el link se abra en otra pestaña y no en la misma --}}
+                            <h3 class="card-title text-uppercase">
+                                {{title}} 
+                            </h3>
+                        </a>
+                        <p class="m-2">{{description}}</p>
+                            <p>{{timeago created_at}}</p>
+                            <a href="/links/edit/{{id}}" class="btn btn-secundary">Editar</a>
+                            <a href="/links/delete/{{id}}" class="btn btn-danger">Borrar enlace</a>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+                <div class="col-md-4 mx-auto">
+                    <div class="card card-body text-center">
+                        <p>No hay nada guardado </p>
+                        <a href="/links/agregar">Crear uno</a>
+                    </div>
+                </div>
+
+        {{/each}}
+
+    </div>
+</div>
+
+
